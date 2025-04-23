@@ -2,98 +2,154 @@ body {
     font-family: Arial, sans-serif;
     background: #f0f2f5;
     margin: 0;
-    padding: 20px;
-  }
-  
-  .container {
+    padding: 10px;
+}
+
+.container {
     max-width: 800px;
     margin: auto;
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  h1, h2, h3 {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
     text-align: center;
     color: #333;
-  }
-  
-  .form-section, .wallet-section {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.form-section, .wallet-section {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  
-  input, button, select {
-    padding: 10px;
+    margin-bottom: 15px;
+}
+
+input, button, select {
+    padding: 12px;
     font-size: 16px;
-    flex: 1;
-  }
-  
-  button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  button:hover {
+    border-radius: 5px;
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
-  .summary {
+}
+
+.summary {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  
-  table {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-  }
-  
-  th, td {
-    padding: 10px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 8px;
     border: 1px solid #ddd;
     text-align: center;
-  }
-  
-  th {
+}
+
+th {
     background-color: #f2f2f2;
-  }
-  
-  .delete-btn {
+}
+
+.delete-btn {
     background-color: #f44336;
     color: white;
-    padding: 6px 10px;
+    padding: 5px 8px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
-  }
-  
-  .delete-btn:hover {
+    font-size: 12px;
+}
+
+.delete-btn:hover {
     background-color: #d32f2f;
-  }
-  
-  .daily-header-summary, .location-summary {
+}
+
+.daily-header-summary, .location-summary {
     background: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-  }
-  
-  .daily-header-summary ul, .location-summary ul {
+    font-size: 14px;
+}
+
+.daily-header-summary ul, .location-summary ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .daily-header-summary li, .location-summary li {
+}
+
+.daily-header-summary li, .location-summary li {
     margin: 5px 0;
     font-weight: 500;
-  }
-  
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .form-section, .wallet-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    input, button, select {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    table {
+        font-size: 16px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+    
+    .delete-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .daily-header-summary, .location-summary {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
