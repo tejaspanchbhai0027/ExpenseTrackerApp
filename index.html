@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Group Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>👥 Group Expense Tracker</h1>
+
+    <div class="wallet-section">
+      <input type="number" id="wallet-input" placeholder="Enter total wallet money" />
+      <button onclick="setWallet()">Set Wallet</button>
+    </div>
+
+    <div class="form-section">
+      <input type="text" id="description" placeholder="Description" />
+      <input type="number" id="amount" placeholder="Total Amount" />
+      <input type="date" id="date" />
+      <select id="location">
+        <option value="">Select Location</option>
+        <option value="Prayagraj">Prayagraj</option>
+        <option value="Varanasi">Varanasi</option>
+        <option value="Ayodhya">Ayodhya</option>
+      </select>
+      <button onclick="addExpense()">Add</button>
+    </div>
+
+    <div class="summary">
+      <p><strong>Total Wallet:</strong> ₹<span id="wallet-total">0</span></p>
+      <p><strong>Remaining Wallet:</strong> ₹<span id="wallet-remaining">0</span></p>
+      <p><strong>Total Group Expense:</strong> ₹<span id="total-group">0</span></p>
+      <p><strong>Total Per Person:</strong> ₹<span id="total-person">0</span></p>
+    </div>
+
+    <div class="daily-header-summary">
+      <h3>📅 Daily Expense Summary</h3>
+      <ul id="daily-summary"></ul>
+    </div>
+
+    <div class="location-summary">
+      <h3>📍 Location-wise Summary</h3>
+      <ul id="location-summary"></ul>
+    </div>
+
+    <div class="transaction-table">
+      <h2>All Daily Expenses</h2>
+      <button onclick="exportToCSV()">Export to CSV</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Per Person</th>
+            <th>Total Group</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
