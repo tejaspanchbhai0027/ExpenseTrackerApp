@@ -73,11 +73,12 @@ function updateUI() {
     const group = dailyGroups[date];
     const groupTotal = group.reduce((sum, e) => sum + e.amount, 0);
     const perPerson = groupTotal / 3;
+    const uniqueLocations = [...new Set(group.map(e => e.location))].join(", ");
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${date}</td>
-      <td>${group[0].location}</td>
+      <td>${uniqueLocations}</td>
       <td>₹${perPerson.toFixed(2)}</td>
       <td>₹${groupTotal.toFixed(2)}</td>
       <td>
