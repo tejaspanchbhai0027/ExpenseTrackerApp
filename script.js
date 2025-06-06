@@ -141,7 +141,4 @@ function exportToCSV() {
   // Clean up
   document.body.removeChild(a);
 }
-
-
-
 updateUI();
