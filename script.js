@@ -67,12 +67,12 @@ function updateUI() {
     totalGroup += exp.amount;
   });
 
-  let totalPerPerson = totalGroup / 3;
+  let totalPerPerson = totalGroup / 2;
 
   for (const date in dailyGroups) {
     const group = dailyGroups[date];
     const groupTotal = group.reduce((sum, e) => sum + e.amount, 0);
-    const perPerson = groupTotal / 3;
+    const perPerson = groupTotal / 2;
     const uniqueLocations = [...new Set(group.map(e => e.location))].join(", ");
 
     const tr = document.createElement("tr");
@@ -110,19 +110,38 @@ function updateUI() {
 }
 
 function exportToCSV() {
+  // CSV header
   let csv = "Date,Location,Description,Amount\n";
+
+  // Loop through each expense and format line
   expenses.forEach(exp => {
-    csv += `${exp.date},${exp.location},${exp.description},${exp.amount}\n`;
+    // Ensure fields are not undefined/null and safely formatted
+    const date = exp.date || "N/A";
+    const location = `"${(exp.location || "").replace(/"/g, '""')}"`;
+    const description = `"${(exp.description || "").replace(/"/g, '""')}"`;
+    const amount = exp.amount || 0;
+
+    // Append the formatted line to CSV
+    csv += `${date},${location},${description},${amount}\n`;
   });
 
-  const blob = new Blob([csv], { type: "text/csv" });
+  // Create a Blob for the CSV file
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+
+  // Generate a downloadable URL
   const url = URL.createObjectURL(blob);
+
+  // Create a hidden anchor element to trigger download
   const a = document.createElement("a");
   a.href = url;
   a.download = "group-expenses.csv";
   document.body.appendChild(a);
   a.click();
+
+  // Clean up
   document.body.removeChild(a);
 }
+
+
 
 updateUI();
